@@ -1,10 +1,9 @@
-version: "3.3"
+version: "3.7"
 
 services:
   #Nginx container
   mynginx:
     image: nginx:stable-alpine
-    container_name: mynginx
     ports:
       - "8080:80"
     volumes:
@@ -20,7 +19,6 @@ services:
   # Mysql container
   mysql:
     image: mysql:latest
-    container_name: mysql
     restart: unless-stopped
     volumes:
       - $HOME/recipes-project/mysql:/var/lib/mysql
@@ -37,7 +35,6 @@ services:
   # PHP-FPM container
   myphp:
     image: php:7.4-fpm
-    container_name: myphp
     ports:
       - "9000:9000"
     volumes:
@@ -53,15 +50,11 @@ services:
   # phpMyAdmin container
   phpMyAdmin:
     image: phpmyadmin
-
     restart: unless-stopped
-
     ports:
       - "8082:80"
-
     environment:
       PMA_HOST: mysql
-
     networks:
       - mynet
 
