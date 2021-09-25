@@ -1,4 +1,4 @@
-<?php 
-echo "I am a PHP page running on four containers: NginX + PHP-PFM";
+<?php
+echo "I am a PHP page running on three containers: NginX + PHP-PFM + Mysql";
 phpinfo();
 ?>
